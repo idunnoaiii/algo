@@ -16,17 +16,6 @@ type DoubleLinkedList struct {
 	Tail *Node
 }
 
-func (dat *DoubleLinkedList) Clear() {
-	trav := dat.Head
-	for trav != nil {
-		next := trav.Next
-		trav.Prev, trav.Next = nil, nil
-		trav = next
-	}
-	dat.Head, dat.Tail = nil, nil
-	dat.Size = 0
-}
-
 func (dat *DoubleLinkedList) IsEmpty() bool {
 	return dat.Size == 0
 }

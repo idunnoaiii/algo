@@ -5,7 +5,8 @@ import (
 	"reflect"
 )
 
-func Equal(t *testing.T, expected interface{}, got interface{}) {
+func AssertEqual(t testing.TB, expected interface{}, got interface{}) {
+	t.Helper()
 	if !reflect.DeepEqual(expected, got) {
 		t.Errorf("expected %v but got %v", expected, got)
 	}
