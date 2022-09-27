@@ -38,7 +38,6 @@ func (dat *DoubleLinkedList) AddLast(data int) {
 	if dat.IsEmpty() {
 		dat.Head, dat.Tail = newNode, newNode
 	} else {
-
 		dat.Tail.Next = newNode
 		newNode.Prev = dat.Tail
 		dat.Tail = newNode
