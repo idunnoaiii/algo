@@ -20,7 +20,9 @@ function solve(arr = [], target) {
         while (start < end) {
             let curSubSum = arr[start] + arr[end]
 
-            if (curSubSum <= (target - cur)) {
+            if (curSubSum < (target - cur)) {
+                for (let j = end - 1; j > start; j--) 
+                    subRes.push([cur, arr[start], arr[j]])
                 subRes.push([cur, arr[start], arr[end]])
                 start += 1
             } else {
@@ -38,3 +40,4 @@ function solve(arr = [], target) {
 
 
 console.log(solve([-1, 0, 2, 3], 3));
+console.log(solve([-1, 4, 2, 1, 3], 5));
