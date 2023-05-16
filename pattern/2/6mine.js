@@ -25,6 +25,7 @@ function solve(arr = [], target) {
                     subRes.push([cur, arr[start], arr[j]])
                 subRes.push([cur, arr[start], arr[end]])
                 start += 1
+
             } else {
                 end -= 1
             }

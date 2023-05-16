@@ -5,7 +5,7 @@ function solve(arr = [], target) {
 
     let result = Number.MAX_VALUE
     
-    for (let i = 0; i < arr.length; i++) {
+    for (let i = 0; i < arr.length - 2; i++) {
 
         let subTargetSum = target - arr[i]
 
@@ -43,6 +43,7 @@ function closetTwoSum(arr = [], target) {
     return target - result
 }
 
-console.log(solve([-2, 0, 1, 2], 2))
-console.log(solve([-3, -1, 1, 2], 1))
-console.log(solve([1, 0, 1, 1], 100))
+//console.log(solve([-2, 0, 1, 2], 2))
+//console.log(solve([-3, -1, 1, 2], 1))
+//console.log(solve([1, 0, 1, 1], 100))
+console.log(solve([-1,2,1,-4], 1))
