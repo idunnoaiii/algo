@@ -49,3 +49,8 @@ console.log(sort([3, 2, 1])) //3
 
 // time O(5N) = O(N)
 // space O(N)
+
+/* 
+the subarr only use for find the min and max of sub array,
+so we can loop from invalidMin to invalidMax to find the min, max instead of wasting space subArr 
+*/
