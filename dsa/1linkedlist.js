@@ -21,3 +21,5 @@ let list = new LinkedList()
 
 console.log(list)
 console.log(list.head === list.tail)
+
+export default Node;
