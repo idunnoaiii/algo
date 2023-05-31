@@ -1,9 +1,9 @@
-function solve(arr=[], k) {
+function solve(arr = [], k) {
     let windStart = 0, maxRes = 0, maxRepeatedCount = 0
 
     let bag = new Map()
 
-    for (let end = 0; end < arr.length; end ++) {
+    for (let end = 0; end < arr.length; end++) {
 
         bag.set(arr[end], (bag.get(arr[end]) || 0) + 1)
 
@@ -31,7 +31,7 @@ function solve(arr=[], k) {
 }
 
 function currentMaxCountChar(map = new Map()) {
-    
+
     let res = []
 
     if (map.size == 0) return res

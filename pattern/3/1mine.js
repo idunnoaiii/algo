@@ -36,8 +36,10 @@ function hasCyclic(head) {
     let slow = head 
     let fast = head
     
-    slow = slow.next
-    fast = fast.next.next
+    slow = slow?.next
+    fast = fast?.next?.next
+
+    if (slow == null)
 
     while(slow != null) {
         if (slow == fast) {
@@ -52,7 +54,6 @@ function hasCyclic(head) {
 
 function hasCyclicNaiveVersion(head) {
     let mem = new Map()
-    
     let point = head
 
     while (point != null) {
