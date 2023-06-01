@@ -27,7 +27,6 @@ function findStart(head) {
     let fast = head
 
     let lenOfCylic = lengthOfCylic(head)
-    console.log(lenOfCylic)
 
     if (lenOfCylic == 0) 
         return null
@@ -42,7 +41,7 @@ function findStart(head) {
         }
 
         slow = slow?.next
-        fast = fast?.next?.next
+        fast = fast?.next
     }
 
     return null
