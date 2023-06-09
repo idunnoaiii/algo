@@ -12,7 +12,7 @@ head.next = new Node(2)
 head.next.next = new Node(3)
 head.next.next.next = new Node(4)
 head.next.next.next.next = new Node(5)
-head.next.next.next.next.next = new Node(6)
+//head.next.next.next.next.next = new Node(6)
 
 function findMiddle(head) {
     if (head.next == null)
@@ -21,7 +21,7 @@ function findMiddle(head) {
     let slow = head
     let fast = head 
 
-    while (fast != null) {
+    while (fast?.next != null) {
         slow = slow?.next
         fast = fast?.next?.next
     }
