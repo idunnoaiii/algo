@@ -1,5 +1,5 @@
 // Palindrome LinkedList
-class Node { 
+class Node {
     constructor(value, next = null) {
         this.value = value
         this.next = next
@@ -14,17 +14,17 @@ head.next.next.next.next = new Node(3)
 head.next.next.next.next.next = new Node(2)
 head.next.next.next.next.next.next = new Node(1)
 
-function isPalindromeLinkedList(head) {
+const isPalindromeLinkedList = (head) => {
 
-    let [middle, lengh] = findMiddle(head) 
+    let [middle, length] = findMiddle(head)
 
     let first = head
-    let second = reverse((lengh & 1) == 0  ? middle : middle.next)
+    let second = reverse((length & 1) === 0 ? middle : middle.next)
 
     while (second != null) {
-        if (first.value != second.value)
+        if (first.value !== second.value)
             return false
-        
+
         first = first.next
         second = second.next
     }
@@ -32,7 +32,7 @@ function isPalindromeLinkedList(head) {
 
 }
 
-function findMiddle(head) {
+const findMiddle = (head) => {
     if (head == null) return [null, 0]
 
     if (head.next == null) return [head, 1]
@@ -43,22 +43,22 @@ function findMiddle(head) {
 
     while (faster?.next != null) {
         cur = cur.next
-        len ++
+        len++
         faster = faster.next?.next
     }
 
-    len = len + len - (faster == null ? 2 : 1) 
+    len = len + len - (faster == null ? 2 : 1)
 
     return [cur, len]
 }
 
-function reverse(head) {
-    if (head == null) 
+const reverse = (head) => {
+    if (head == null)
         return null
 
     let cur = head
 
-    if (head.next == null) 
+    if (head.next == null)
         return head
 
     let prev = null
@@ -79,7 +79,7 @@ function reverse(head) {
     return prev
 }
 
-function print(head) {
+const print = (head) => {
     let cur = head
     while (cur != null) {
         console.log(cur.value)
