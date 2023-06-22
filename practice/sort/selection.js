@@ -14,6 +14,6 @@ const selectionSort = function(arr = []) {
     return arr
 }
 
-// worstcase
+// worst case
 // time: O(n^2)
 // space: O(1)
