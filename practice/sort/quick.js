@@ -18,7 +18,7 @@ const pivot = (arr = [], left, right) => {
     while (j <= p) {
         if (arr[j] < arr[p]) {
             i += 1
-                [arr[i], arr[j]] = [arr[j], arr[i]]
+            [arr[i], arr[j]] = [arr[j], arr[i]]
         }
         j += 1
     }
