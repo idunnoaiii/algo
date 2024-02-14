@@ -6,6 +6,8 @@ const search = function (nums = [], target) {
 
 const binSearch = function (nums = [], left = 0, right = nums.length - 1, target) {
     let mid = left + ((right - left) >> 1)
+    
+    if (left > right) return -1
 
     if (nums[mid] === target)
         return mid
@@ -33,6 +35,7 @@ const searchLoopVer = function (nums = [], target) {
             right = mid
             continue
         }
+        
 
         left = mid + 1
     }
