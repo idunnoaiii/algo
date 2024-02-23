@@ -3,13 +3,17 @@
  * Given a string and a pattern, find out if the string contains any permutation of the pattern.
  */
 
+//#region Code
+
 /**
  * @param {string[]} arr
  * @param {string} pattern
  * @returns {boolean}
  */
 const findPermutation = function (arr, pattern) {
-  if (arr.length === 0 || pattern.length === 0) return true;
+
+  if (arr.length === 0 || pattern.length === 0) 
+    return true;
 
   let frequenceChar = new Map();
   let isMatch = 0;
@@ -29,7 +33,8 @@ const findPermutation = function (arr, pattern) {
       }
     }
 
-    if (isMatch === frequenceChar.size) return true;
+    if (isMatch === frequenceChar.size) 
+      return true;
 
     if (wEnd - wStart + 1 >= pattern.length) {
       let curStartChar = arr[wStart];
@@ -51,9 +56,31 @@ console.log(findPermutation("odicf", "dc")); //false
 console.log(findPermutation("bcdxabcdy", "bcdxabcdy")); //true
 console.log(findPermutation("aaacb", "abc")); //true, The string contains "acb" which is a permutation of the given pattern.
 
+//#endregion
 
 /** ==================================================================================================================================================
  * https://leetcode.com/problems/find-all-anagrams-in-a-string/
  * Given a string and a pattern, find all anagrams of the pattern in the given string.
  */
 
+//#region Code
+
+/**
+ * @param {string} arr
+ * @param {string} pattern
+ * @returns {number[]}
+ */
+const findStringAnagrams = function (arr, pattern) {
+  let posIndex = [];
+  let left = 0;
+
+  for (let end = 0; end < arr.length; end++) {
+
+  }
+
+};
+
+findStringAnagrams("ppqp", "pq"); //[1,2], The two anagrams of the pattern in the given string are "pq" and "qp".
+findStringAnagrams("abbcabc", "abc"); //[2,3,4], The three anagrams of the pattern in the given string are "bca", "cab", and "abc".
+
+//#endregion
