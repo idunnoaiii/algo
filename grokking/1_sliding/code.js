@@ -11,9 +11,7 @@
  * @returns {boolean}
  */
 const findPermutation = function (arr, pattern) {
-
-  if (arr.length === 0 || pattern.length === 0) 
-    return true;
+  if (arr.length === 0 || pattern.length === 0) return true;
 
   let frequenceChar = new Map();
   let isMatch = 0;
@@ -33,8 +31,7 @@ const findPermutation = function (arr, pattern) {
       }
     }
 
-    if (isMatch === frequenceChar.size) 
-      return true;
+    if (isMatch === frequenceChar.size) return true;
 
     if (wEnd - wStart + 1 >= pattern.length) {
       let curStartChar = arr[wStart];
@@ -51,11 +48,11 @@ const findPermutation = function (arr, pattern) {
   return false;
 };
 
-console.log(findPermutation("oidbcaf", "abc")); //true, The string contains "bca" which is a permutation of the given pattern.
-console.log(findPermutation("odicf", "dc")); //false
-console.log(findPermutation("bcdxabcdy", "bcdxabcdy")); //true
-console.log(findPermutation("aaacb", "abc")); //true, The string contains "acb" which is a permutation of the given pattern.
-
+//console.log(findPermutation("oidbcaf", "abc")); //true, The string contains "bca" which is a permutation of the given pattern.
+//console.log(findPermutation("odicf", "dc")); //false
+//console.log(findPermutation("bcdxabcdy", "bcdxabcdy")); //true
+//console.log(findPermutation("aaacb", "abc")); //true, The string contains "acb" which is a permutation of the given pattern.
+//
 //#endregion
 
 /** ==================================================================================================================================================
@@ -72,15 +69,41 @@ console.log(findPermutation("aaacb", "abc")); //true, The string contains "acb" 
  */
 const findStringAnagrams = function (arr, pattern) {
   let posIndex = [];
-  let left = 0;
+  let basket = new Map();
 
-  for (let end = 0; end < arr.length; end++) {
-
+  for (let item of pattern) {
+    basket.set(item, (basket.get(item) || 0) + 1);
   }
 
+  let start = 0;
+
+  for (let end = 0; end < arr.length; end++) {
+    let curChar = arr[end];
+    if (basket.get(curChar)) {
+      basket.set(curChar, basket.get(curChar) - 1);
+      if (basket.get(curChar) === 0) {
+        basket.delete(curChar);
+      }
+    }
+
+    if (basket.size === 0) posIndex.push(start);
+
+    if (end - start + 1 >= pattern.length) {
+      let startCurChar = arr[start];
+      basket.set(startCurChar, (basket.get(startCurChar) || 0) + 1);
+      start += 1;
+      startCurChar = arr[start];
+      basket.set(startCurChar, (basket.get(startCurChar) || 0) - 1);
+      if (basket.get(startCurChar) === 0) {
+        basket.delete(startCurChar);
+      }
+    }
+  }
+
+  return posIndex;
 };
 
-findStringAnagrams("ppqp", "pq"); //[1,2], The two anagrams of the pattern in the given string are "pq" and "qp".
-findStringAnagrams("abbcabc", "abc"); //[2,3,4], The three anagrams of the pattern in the given string are "bca", "cab", and "abc".
+console.log(findStringAnagrams("ppqp", "pq")); //[1,2], The two anagrams of the pattern in the given string are "pq" and "qp".
+console.log(findStringAnagrams("abbcabc", "abc")); //[2,3,4], The three anagrams of the pattern in the given string are "bca", "cab", and "abc".
 
 //#endregion
