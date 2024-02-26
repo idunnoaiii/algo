@@ -104,7 +104,21 @@ const findStringAnagrams = function (arr, pattern) {
 	return posIndex;
 };
 
-console.log(findStringAnagrams("ppqp", "pq")); //[1,2], The two anagrams of the pattern in the given string are "pq" and "qp".
-console.log(findStringAnagrams("abbcabc", "abc")); //[2,3,4], The three anagrams of the pattern in the given string are "bca", "cab", and "abc".
+// console.log(findStringAnagrams("ppqp", "pq")); //[1,2], The two anagrams of the pattern in the given string are "pq" and "qp".
+// console.log(findStringAnagrams("abbcabc", "abc")); //[2,3,4], The three anagrams of the pattern in the given string are "bca", "cab", and "abc".
 
 //#endregion
+
+
+/** ==================================================================================================================================================
+ * https://leetcode.com/problems/find-all-anagrams-in-a-string/
+ * Given a string and a pattern, find all anagrams of the pattern in the given string.
+ */
+
+//#region code
+
+const x = function() {
+
+}
+
+//#endregion code
